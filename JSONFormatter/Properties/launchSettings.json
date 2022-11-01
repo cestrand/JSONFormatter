@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "JSONFormatter (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "JSONFormatter (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
