@@ -20,4 +20,18 @@ public class FormatterTests
             "",
             defaultFormatter.Format(""));
     }
+
+    [TestMethod()]
+    public void FormatTest__EmptyObject()
+    {
+        Assert.AreEqual(
+            "{}",
+            defaultFormatter.Format("{}"));
+        Assert.AreEqual(
+            "{}",
+            defaultFormatter.Format("  {   \n}"));
+        Assert.AreEqual(
+            "{}",
+            defaultFormatter.Format("  {   }"));
+    }
 }

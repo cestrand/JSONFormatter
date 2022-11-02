@@ -18,7 +18,31 @@ public class Formatter
 
     public Output Format(string s)
     {
-        var result = s;
+        StringBuilder b = new();
+
+        char prev = '\0';
+
+
+        foreach(char c in s)
+        {
+            if (Char.IsWhiteSpace(c)) continue;
+            if (c == '{')
+            {
+                b.Append(c);
+                prev = c;
+            }
+            if (c == '}')
+            {
+                if (prev != '{')
+                {
+                    b.Append('\n');
+                }
+                b.Append(c);
+                prev = c;
+            }
+        }
+
+        var result = b.ToString();
         return new Output(result, null);
     }
 
