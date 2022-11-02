@@ -30,6 +30,7 @@ public class Formatter
             {
                 b.Append(c);
                 prev = c;
+                continue;
             }
             if (c == '}')
             {
@@ -39,6 +40,25 @@ public class Formatter
                 }
                 b.Append(c);
                 prev = c;
+                continue;
+            }
+            if (c != '}')
+            {
+                if (prev == ':')
+                {
+                    b.Append(' ');
+                }
+                if (prev == '{')
+                {
+                    b.Append('\n');
+                    for(var i = 0; i < settings.IndentSize; i++)
+                    {
+                        b.Append(" ");
+                    }
+                }
+                b.Append(c);
+                prev = c;
+                continue;
             }
         }
 

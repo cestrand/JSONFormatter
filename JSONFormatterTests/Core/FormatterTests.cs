@@ -34,4 +34,15 @@ public class FormatterTests
             "{}",
             defaultFormatter.Format("  {   }"));
     }
+
+    [TestMethod()]
+    public void FormatTest__ObjectWithNumericalMember()
+    {
+        Assert.AreEqual(
+            "{\n" +
+            "  num: 5\n" +
+            "}",
+            defaultFormatter.Format("{num:5}"));
+ 
+    }
 }
