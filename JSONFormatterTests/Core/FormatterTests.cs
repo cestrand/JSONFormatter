@@ -43,6 +43,18 @@ public class FormatterTests
             "  num: 5\n" +
             "}",
             defaultFormatter.Format("{num:5}"));
+    }
+
+    [TestMethod()]
+    public void FormatTest__ObjectWithTwoNumericalMembers()
+    {
+        Assert.AreEqual(
+            "{\n" +
+            "  num1: 5,\n" +
+            "  num2: 7\n" +
+            "}",
+            defaultFormatter.Format("{num1:5, num2:7}"));
+    }
  
     }
 }
