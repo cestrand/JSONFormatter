@@ -26,11 +26,17 @@ public class Formatter
         foreach(char c in s)
         {
             if (Char.IsWhiteSpace(c)) continue;
+            if (prev == ':')
+            {
+                b.Append(' ');
+            }
+            if (prev == ',')
+            {
+                newIndentedLine(b);
+            }
             if (c == '{')
             {
                 b.Append(c);
-                prev = c;
-                continue;
             }
             if (c == '}')
             {
@@ -39,23 +45,16 @@ public class Formatter
                     b.Append('\n');
                 }
                 b.Append(c);
-                prev = c;
-                continue;
             }
-            if (c != '}')
+            if (c != '{' && c != '}')
             {
-                if (prev == ':')
-                {
-                    newIndentedLine(b);
-                }
                 if (prev == '{')
                 {
                     newIndentedLine(b);
                 }
                 b.Append(c);
-                prev = c;
-                continue;
             }
+            prev = c;
         }
 
         var result = b.ToString();

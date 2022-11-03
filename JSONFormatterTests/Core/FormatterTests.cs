@@ -55,7 +55,7 @@ public class FormatterTests
             "}",
             defaultFormatter.Format("{num1:5, num2:7}"));
     }
- 
+
     [TestMethod()]
     public void FormatTest__ObjectWithEmptyObject()
     {
@@ -65,4 +65,6 @@ public class FormatterTests
             "}",
             defaultFormatter.Format("{obj: {}}"));
     }
+
+
 }
