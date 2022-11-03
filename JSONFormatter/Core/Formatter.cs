@@ -46,15 +46,11 @@ public class Formatter
             {
                 if (prev == ':')
                 {
-                    b.Append(' ');
+                    newIndentedLine(b);
                 }
                 if (prev == '{')
                 {
-                    b.Append('\n');
-                    for(var i = 0; i < settings.IndentSize; i++)
-                    {
-                        b.Append(" ");
-                    }
+                    newIndentedLine(b);
                 }
                 b.Append(c);
                 prev = c;
@@ -64,6 +60,15 @@ public class Formatter
 
         var result = b.ToString();
         return new Output(result, null);
+    }
+
+    private void newIndentedLine(StringBuilder b)
+    {
+        b.Append('\n');
+        for (var i = 0; i < settings.IndentSize; i++)
+        {
+            b.Append(" ");
+        }
     }
 
     public record Settings(
